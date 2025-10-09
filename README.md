@@ -18,3 +18,4 @@ Then on another terminal, execute the analyzer, that will communicate with the m
 cargo run --release -p hindmarsh-rose-analyzer-rs
 ```
 
+When it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `e` value founded. The evolution of the model will be written on `data/hindmarsh-rose.csv`.
