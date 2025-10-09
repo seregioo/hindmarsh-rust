@@ -1,0 +1,13 @@
+[package]
+name = "hindmarsh-rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+
+[workspace]
+members = [
+  "hindmarsh-rose-rs",
+  "hindmarsh-rose-analyzer-rs"
+, "model-data-io"]

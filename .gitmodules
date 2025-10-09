@@ -1,0 +1,9 @@
+[submodule "hindmarsh-rose-analyzer-rs"]
+	path = hindmarsh-rose-analyzer-rs
+	url = https://github.com/sergiohidalgo818/hindmarsh-rose-analyzer-rs
+[submodule "hindmarsh-rose-rs"]
+	path = hindmarsh-rose-rs
+	url = https://github.com/sergiohidalgo818/hindmarsh-rose-rs
+[submodule "model-data-io"]
+	path = model-data-io
+	url = https://github.com/sergiohidalgo818/model-data-io
