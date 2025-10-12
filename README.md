@@ -1,7 +1,7 @@
 # Hindmarsh Rust
 A workspace that contains the create programs and libraries to execute some operations over the Hindmarsh Rose Model.
 
-## Dependences
+## Dependencies
 For building and running this project, you will need to download [Rust](https://rust-lang.org/tools/install/).
 
 ## Usage
