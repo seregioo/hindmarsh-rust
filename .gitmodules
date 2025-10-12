@@ -7,3 +7,6 @@
 [submodule "model-data-io"]
 	path = model-data-io
 	url = https://github.com/sergiohidalgo818/model-data-io
+[submodule "electrical-synapse-rs"]
+	path = electrical-synapse-rs
+	url = https://github.com/sergiohidalgo818/electrical-synapse-rs
