@@ -6,13 +6,28 @@ For building and running this project, you will need to download [Rust](https://
 
 ## Usage
 
-- [hindmarsh-rose-rs README](https://github.com/sergiohidalgo818/hindmarsh-rose-rs/blob/main/README.md)
-- [hindmarsh-rose-analyzer-rs README](https://github.com/sergiohidalgo818/hindmarsh-rose-analyzer-rs/blob/master/README.md)
+### Hindmarsh-Rose Rust
+Run the following line to see the different command, arguments and its defaults:
+```bash
+cargo run --release -p hindmarsh-rose-rs -- -h
+```
+
+For each command you can run:
+```bash
+cargo run --release -p hindmarsh-rose-rs -- [COMMAND] -h
+```
+
+
+### Hindmarsh-Rose Analyzer Rust
+Run the following command to see the different arguments and its defaults:
+```bash
+cargo run --release -p hindmarsh-rose-analyzer-rs -- -h
+```
 
 >[!WARNING]
 >If you send SIGINT to one of the programs, the fifo won't be deleted, delete it yourself (default names have path like: `/tmp/hindmarsh-rust-*`) or execute one time the other end that didn't received the signal (reader fifos are cleaned on exit too).
 
-### Hidmarsh Rose Analysis on `e` parameter 
+### Execute Hidmarsh Rose Analysis on `e` parameter 
 
 For executing the model, run:
 ```bash
