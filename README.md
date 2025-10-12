@@ -10,7 +10,7 @@ For building and running this project, you will need to download [Rust](https://
 
 For executing the model, run:
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -wop -e 3.281 -dr 50 -g 25000
+cargo run --release -p hindmarsh-rose-rs -- -e 3.281 -dr 50 -g 25000 analysis -wop 
 ```
 
 Then on another terminal, execute the analyzer, that will communicate with the model through the fifo implemented on the  `model-data-io` library.
