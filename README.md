@@ -6,6 +6,9 @@ For building and running this project, you will need to download [Rust](https://
 
 ## Usage
 
+>[!WARNING]
+>If you send SIGINT to one of the programs, the fifo won't be deleted, delete it yourself (default names have path like: `/tmp/hindmarsh_rose_*`) or execute one time the other end that didn't received the signal (reader fifos are cleaned on exit too).
+
 ### Hidmarsh Rose Analysis on `e` parameter 
 
 For executing the model, run:
