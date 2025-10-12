@@ -7,7 +7,7 @@ For building and running this project, you will need to download [Rust](https://
 ## Usage
 
 ### Hindmarsh-Rose Rust
-Run the following line to see the different command, arguments and its defaults:
+Run the following line to see the different command, arguments and defaults:
 ```bash
 cargo run --release -p hindmarsh-rose-rs -- -h
 ```
@@ -17,9 +17,8 @@ For each command you can run:
 cargo run --release -p hindmarsh-rose-rs -- [COMMAND] -h
 ```
 
-
 ### Hindmarsh-Rose Analyzer Rust
-Run the following command to see the different arguments and its defaults:
+Run the following command to see the different arguments and defaults:
 ```bash
 cargo run --release -p hindmarsh-rose-analyzer-rs -- -h
 ```
