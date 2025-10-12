@@ -6,6 +6,9 @@ For building and running this project, you will need to download [Rust](https://
 
 ## Usage
 
+- [hindmarsh-rose-rs README](hindmarsh-rose-rs/README.md)
+- [hindmarsh-rose-analyzer-rs README](hindmarsh-rose-analyzer-rs/README.md)
+
 >[!WARNING]
 >If you send SIGINT to one of the programs, the fifo won't be deleted, delete it yourself (default names have path like: `/tmp/hindmarsh-rust-*`) or execute one time the other end that didn't received the signal (reader fifos are cleaned on exit too).
 
