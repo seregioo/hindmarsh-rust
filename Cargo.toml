@@ -9,5 +9,7 @@ edition = "2024"
 [workspace]
 members = [
   "hindmarsh-rose-rs",
-  "hindmarsh-rose-analyzer-rs"
-, "model-data-io"]
+  "hindmarsh-rose-analyzer-rs",
+  "model-data-io",
+  "electrical-synapse-rs",
+]
