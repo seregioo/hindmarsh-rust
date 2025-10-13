@@ -46,16 +46,36 @@ When it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `
 For executing a monodirectional synapse, three programs are needed, the first two are the two neuron models (Hindmarsh-Rose in this case):
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage-pre' -rfp '/tmp/hindmarsh-rust-electrical-syn-current-pre' synapse 
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -em 0
 ```
 
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage-pos' -rfp '/tmp/hindmarsh-rust-electrical-syn-current-pos' synapse 
-
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -r 0
 ```
 
 The other program needed is an electrical synapse:
 ```bash
 argo run --release -p electrical-synapse-rs 
+```
+
+### Execute Hidmarsh Rose bidirectional synapse 
+
+For bidirectional synapse, are needed 2 synapse models, and their ids needs to be indicated on the Hindmarsh-Rose model arguments: 
+```bash
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -em 0 -r 1
+```
+
+```bash
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -r 0 -em 1
+```
+
+In this case is on antiphase:
+```bash
+cargo run --release -p electrical-synapse-rs -- --g-fast -0.44
+```
+
+The id needs to be indicated, and its recommended to change the output file:
+```bash
+cargo run --release -p electrical-synapse-rs -- --g-fast -0.44 -si 1 -f hindmarsh-rose-syn-1.csv
 ```
