@@ -46,12 +46,12 @@ When it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `
 For executing a monodirectional synapse, three programs are needed, the first two are the two neuron models (Hindmarsh-Rose in this case):
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical_syn-pre' -rfp '/tmp/hindmarsh-rust-electrical_syn-current_pre' synapse 
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage-pre' -rfp '/tmp/hindmarsh-rust-electrical-syn-current-pre' synapse 
 ```
 
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical_syn-pos' -rfp '/tmp/hindmarsh-rust-electrical_syn-current_pos' synapse 
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage-pos' -rfp '/tmp/hindmarsh-rust-electrical-syn-current-pos' synapse 
 
 ```
 
