@@ -39,3 +39,23 @@ cargo run --release -p hindmarsh-rose-analyzer-rs
 ```
 
 When it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `e` value founded. The evolution of the model will be written on `data/hindmarsh-rose.csv`.
+
+
+### Execute Hidmarsh Rose monodirectional synapse 
+
+For executing a monodirectional synapse, three programs are needed, the first two are the two neuron models (Hindmarsh-Rose in this case):
+
+```bash
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 synapse -wfp '/tmp/hindmarsh-rust-electrical_syn-pre' -rfp '/tmp/hindmarsh-rust-electrical_syn-current_pre'
+```
+
+
+```bash
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 synapse -wfp '/tmp/hindmarsh-rust-electrical_syn-pos' -rfp '/tmp/hindmarsh-rust-electrical_syn-current_pos'
+
+```
+
+The other program needed is an electrical synapse:
+```bash
+argo run --release -p electrical-synapse-rs 
+```
