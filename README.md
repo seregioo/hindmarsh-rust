@@ -7,6 +7,7 @@ For building and running this project, you will need to download [Rust](https://
 ## Usage
 
 ### Hindmarsh-Rose Rust
+
 Run the following line to see the different command, arguments and defaults:
 ```bash
 cargo run --release -p hindmarsh-rose-rs -- -h
@@ -46,12 +47,12 @@ When it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `
 For executing a monodirectional synapse, three programs are needed, the first two are the two neuron models (Hindmarsh-Rose in this case):
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -em 0
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --postsynaptics 0
 ```
 
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -r 0
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --presynaptics 0
 ```
 
 The other program needed is an electrical synapse:
@@ -63,11 +64,11 @@ argo run --release -p electrical-synapse-rs
 
 For bidirectional synapse, are needed 2 synapse models, and their ids needs to be indicated on the Hindmarsh-Rose model arguments: 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -em 0 -r 1
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --postsynaptics 0 --presynaptics 1
 ```
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse -r 0 -em 1
+cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --presynaptics 0 --postsynaptics 1
 ```
 
 In this case is on antiphase:
