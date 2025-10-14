@@ -31,7 +31,7 @@ cargo run --release -p hindmarsh-rose-analyzer-rs -- -h
 
 For executing the model, run:
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -e 3.281 -dr 50 -g 25000 analysis -wop 
+cargo run --release -p hindmarsh-rose-rs -- --e 3.281 --downsample-rate 50 --goal 25000 --write-on-pipe --runge-kutta analysis  
 ```
 
 Then on another terminal, execute the analyzer, that will communicate with the model through the fifo implemented on the  `model-data-io` library.
@@ -47,12 +47,12 @@ When it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `
 For executing a monodirectional synapse, three programs are needed, the first two are the two neuron models (Hindmarsh-Rose in this case):
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --postsynaptics 0
+cargo run --release -p hindmarsh-rose-rs -- --downsample-rate  50 --goal 25000 --write-fifo-path '/tmp/hindmarsh-rust-electrical-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-electrical-syn-current' --runge-kutta synapse --postsynaptics 0
 ```
 
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --presynaptics 0
+cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 --goal 25000 --write-fifo-path '/tmp/hindmarsh-rust-electrical-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-electrical-syn-current' --runge-kutta synapse --presynaptics 0
 ```
 
 The other program needed is an electrical synapse:
@@ -64,11 +64,11 @@ argo run --release -p electrical-synapse-rs
 
 For bidirectional synapse, are needed 2 synapse models, and their ids needs to be indicated on the Hindmarsh-Rose model arguments: 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --postsynaptics 0 --presynaptics 1
+cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 -g 25000 --write-fifo-path '/tmp/hindmarsh-rust-electrical-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-electrical-syn-current' --runge-kutta synapse --postsynaptics 0 --presynaptics 1
 ```
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- -dr 50 -g 25000 -wfp '/tmp/hindmarsh-rust-electrical-syn-voltage' -rfp '/tmp/hindmarsh-rust-electrical-syn-current' synapse --presynaptics 0 --postsynaptics 1
+cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 -g 25000 --write-fifo-path '/tmp/hindmarsh-rust-electrical-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-electrical-syn-current' --runge-kutta synapse --presynaptics 0 --postsynaptics 1
 ```
 
 In this case is on antiphase:
@@ -78,5 +78,5 @@ cargo run --release -p electrical-synapse-rs -- --g-fast -0.44
 
 The id needs to be indicated, and its recommended to change the output file:
 ```bash
-cargo run --release -p electrical-synapse-rs -- --g-fast -0.44 -si 1 -f hindmarsh-rose-syn-1.csv
+cargo run --release -p electrical-synapse-rs -- --g-fast -0.44 --synapse-id 1 --filename hindmarsh-rose-syn-1.csv
 ```
