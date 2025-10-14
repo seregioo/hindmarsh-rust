@@ -68,7 +68,7 @@ cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 -g 25000 --writ
 ```
 
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 -g 25000 --write-fifo-path '/tmp/hindmarsh-rust-electrical-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-electrical-syn-current' --runge-kutta synapse --presynaptics 0 --postsynaptics 1
+cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 -g 25000 --write-fifo-path '/tmp/hindmarsh-rust-electrical-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-electrical-syn-current' --runge-kutta synapse --postsynaptics 1 --presynaptics 0 
 ```
 
 In this case is on antiphase:
@@ -80,3 +80,7 @@ The id needs to be indicated, and its recommended to change the output file:
 ```bash
 cargo run --release -p electrical-synapse-rs -- --g-fast -0.44 --synapse-id 1 --filename hindmarsh-rose-syn-1.csv
 ```
+
+
+## TODO:
+Improve temporal scale (ensure same points for each model, maybe with a channel to send the data to thread). They have a temporal "lag" because the time for reading, writing and calculating,
