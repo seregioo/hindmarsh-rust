@@ -57,7 +57,7 @@ cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 --goal 25000 --
 
 The other program needed is an electrical synapse:
 ```bash
-argo run --release -p electrical-synapse-rs 
+cargo run --release -p electrical-synapse-rs 
 ```
 
 ### Execute Hidmarsh Rose bidirectional synapse 
