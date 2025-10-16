@@ -31,15 +31,29 @@ cargo run --release -p hindmarsh-rose-analyzer-rs -- -h
 
 For executing the model, run:
 ```bash
-cargo run --release -p hindmarsh-rose-rs -- --e 3.281 --downsample-rate 50 --goal 25000 --write-on-pipe --runge-kutta analysis  
+cargo run --release -p hindmarsh-rose-rs -- --e 3.281 --downsample-rate 50 --eternal-loop --write-on-pipe --runge-kutta analysis  
 ```
 
 Then on another terminal, execute the analyzer, that will communicate with the model through the fifo implemented on the  `model-data-io` library.
+
+Here we have two options.
+
+
+#### Stop with maximum e
+Using a max value of e to stop.
+
 ```bash
-cargo run --release -p hindmarsh-rose-analyzer-rs
+cargo run --release -p hindmarsh-rose-analyzer-rs  -- --max-e 3.26
 ```
 
-When it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `e` value founded. The evolution of the model will be written on `data/hindmarsh-rose.csv`.
+
+#### Stop with standard deviation
+Ignores the maximum e and uses the standard deviation tolerance to stop.
+```bash
+cargo run --release -p hindmarsh-rose-analyzer-rs  -- --stop-with-standard-deviation
+```
+
+Either way, when it finishes, `hindmarsh-rose-analyzer-rs` will show on stdout the optimal `e` value founded. The evolution of the model will be written on `data/hindmarsh-rose-analysis.csv`.
 
 
 ### Execute Hidmarsh Rose monodirectional synapse 
