@@ -113,5 +113,17 @@ The other program needed is an electrical synapse:
 cargo run --release -p fast-chemical-synapse-rs 
 ```
 
+
+### Execute bidirectional fast-slow synapse sequentially
+
+For avoiding performance issues, the most interesting execution can be done just with the following command:
+
+```bash
+cargo run --release
+```
+
+This will store the data of the execution in `data/hindmarsh-rose-single-exec-syn.csv`.
+
+
 ## TODO:
 Improve temporal scale (ensure same points for each model, maybe with a channel to send the data to thread). They have a temporal "lag" because the time for reading, writing and calculating,
