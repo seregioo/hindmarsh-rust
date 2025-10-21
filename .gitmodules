@@ -10,3 +10,6 @@
 [submodule "electrical-synapse-rs"]
 	path = electrical-synapse-rs
 	url = https://github.com/sergiohidalgo818/electrical-synapse-rs
+[submodule "fast-chemical-synapse-rs"]
+	path = fast-chemical-synapse-rs
+	url = https://github.com/sergiohidalgo818/fast-chemical-synapse-rs

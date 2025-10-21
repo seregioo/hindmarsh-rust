@@ -12,4 +12,5 @@ members = [
   "hindmarsh-rose-analyzer-rs",
   "model-data-io",
   "electrical-synapse-rs",
+  "fast-chemical-synapse-rs",
 ]
