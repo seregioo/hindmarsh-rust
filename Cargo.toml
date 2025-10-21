@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 hindmarsh-rose-rs = { path = "./hindmarsh-rose-rs" }
 fast-chemical-synapse-rs= { path = "./fast-chemical-synapse-rs" }
+slow-chemical-synapse-rs= { path = "./slow-chemical-synapse-rs" }
 model-data-io = { path = "./model-data-io" }
 
 [workspace]

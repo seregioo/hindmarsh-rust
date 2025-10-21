@@ -10,7 +10,7 @@ use slow_chemical_synapse_rs::slow_chemical_synapse::SlowChemicalSynapse;
 fn main() {
     let filename = "hindmarsh-rose-single-exec-syn.csv".to_string();
     let goal = 20000.0;
-    let time_increment = 0.0015;
+    let time_increment = 0.0009;
     let downsample_rate = 100;
 
     let mut time_counter = 0.0;
@@ -20,23 +20,34 @@ fn main() {
     let y = 1.0;
     let z = 1.0;
 
-    let e = 3.0;
+    let e = 3.281;
     let mu = 0.0021;
     let s = 4.0;
     let vh = 1.0;
 
-    // let g_fast = 0.241;
-    let g_fast = 0.046;
     let e_syn = -1.92;
+
+    let g_fast = 0.208;
     let s_fast = 0.44;
     let v_fast = -1.66;
 
+    let g_slow = 0.046;
+    let s_slow = 1.0;
+    let v_slow = -1.74;
+    let k_1x = 0.74;
+    let k_2x = 0.007;
+
     let fast_chemical_synapse_rs = FastChemicalSynapse::new(g_fast, e_syn, s_fast, v_fast);
+
+    let mut slow_chemical_synapse_rs =
+        SlowChemicalSynapse::new(g_slow, e_syn, s_slow, v_slow, k_1x, k_2x, time_increment);
 
     let model_derivatives_pre = hindmarsh_rose::ModelDerivativeVariables::new(x, y, z);
     let model_derivatives_pos = hindmarsh_rose::ModelDerivativeVariables::new(x, y, z);
+
     let temporal_variables_pre = hindmarsh_rose::ModelTemporalVariables::new(e, mu, s, vh);
     let temporal_variables_pos = hindmarsh_rose::ModelTemporalVariables::new(e, mu, s, vh);
+
     let mut hr_pre = HindmarshRoseRungeKutta::new(
         model_derivatives_pre,
         temporal_variables_pre,
@@ -57,7 +68,10 @@ fn main() {
         time_counter += time_increment;
         let (x_pre, _, _) = hr_pre.get_model_info();
         let (x_pos, _, _) = hr_pos.get_model_info();
+
         hr_pos.update_i_syn(fast_chemical_synapse_rs.calculate(x_pre, x_pos));
+        hr_pre.update_i_syn(slow_chemical_synapse_rs.calculate(x_pre, x_pos));
+
         if downsample_counter == downsample_rate {
             downsample_counter = 0;
             let x_arg_pre = DataArgument::new("x_pre".to_string(), x_pre);
