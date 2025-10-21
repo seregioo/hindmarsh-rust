@@ -6,6 +6,7 @@ use model_data_io::{
     DataArgument,
     data_writer::{DataWriter, DataWriterCsv},
 };
+use slow_chemical_synapse_rs::slow_chemical_synapse::SlowChemicalSynapse;
 fn main() {
     let filename = "hindmarsh-rose-single-exec-syn.csv".to_string();
     let goal = 20000.0;

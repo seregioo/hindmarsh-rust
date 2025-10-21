@@ -2551,6 +2551,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "slow-chemical-synapse-rs"
+version = "0.1.0"
+dependencies = [
+ "model-data-io",
+]
+
+[[package]]
 name = "smallvec"
 version = "1.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

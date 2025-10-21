@@ -13,3 +13,6 @@
 [submodule "fast-chemical-synapse-rs"]
 	path = fast-chemical-synapse-rs
 	url = https://github.com/sergiohidalgo818/fast-chemical-synapse-rs
+[submodule "slow-chemical-synapse-rs"]
+	path = slow-chemical-synapse-rs
+	url = https://github.com/sergiohidalgo818/slow-chemical-synapse-rs
