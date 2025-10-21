@@ -4,7 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-
+hindmarsh-rose-rs = { path = "./hindmarsh-rose-rs" }
+fast-chemical-synapse-rs= { path = "./fast-chemical-synapse-rs" }
+model-data-io = { path = "./model-data-io" }
 
 [workspace]
 members = [
@@ -13,4 +15,7 @@ members = [
   "model-data-io",
   "electrical-synapse-rs",
   "fast-chemical-synapse-rs",
+  "."
 ]
+
+

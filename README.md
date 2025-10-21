@@ -95,6 +95,23 @@ The id needs to be indicated, and its recommended to change the output file:
 cargo run --release -p electrical-synapse-rs -- --g-fast -0.44 --synapse-id 1 --filename hindmarsh-rose-syn-1.csv
 ```
 
+### Execute any other synapse
+
+Just execute the same commands, most of the arguments are the same, but just in case check them individually. Here an example with fast chemical monodirectional synapse is introduced:
+
+```bash
+cargo run --release -p hindmarsh-rose-rs -- --downsample-rate  50 --goal 25000 --write-fifo-path '/tmp/hindmarsh-rust-fast-chem-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-fast-chem-syn-current' --runge-kutta synapse --postsynaptics 0
+```
+
+
+```bash
+cargo run --release -p hindmarsh-rose-rs -- --downsample-rate 50 --goal 25000 --write-fifo-path '/tmp/hindmarsh-rust-fast-chem-syn-voltage' --read-fifo-path '/tmp/hindmarsh-rust-fast-chem-syn-current' --runge-kutta synapse --presynaptics 0
+```
+
+The other program needed is an electrical synapse:
+```bash
+cargo run --release -p fast-chemical-synapse-rs 
+```
 
 ## TODO:
 Improve temporal scale (ensure same points for each model, maybe with a channel to send the data to thread). They have a temporal "lag" because the time for reading, writing and calculating,

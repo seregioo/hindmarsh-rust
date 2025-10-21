@@ -833,6 +833,11 @@ dependencies = [
 [[package]]
 name = "hindmarsh-rust"
 version = "0.1.0"
+dependencies = [
+ "fast-chemical-synapse-rs",
+ "hindmarsh-rose-rs",
+ "model-data-io",
+]
 
 [[package]]
 name = "home"
