@@ -10,7 +10,7 @@ use slow_chemical_synapse_rs::slow_chemical_synapse::SlowChemicalSynapse;
 fn main() {
     let filename = "hindmarsh-rose-single-exec-syn.csv".to_string();
     let goal = 20000.0;
-    let time_increment = 0.0009;
+    let time_increment = 0.0001;
     let downsample_rate = 100;
 
     let mut time_counter = 0.0;
@@ -70,7 +70,7 @@ fn main() {
         let (x_pos, _, _) = hr_pos.get_model_info();
 
         hr_pos.update_i_syn(fast_chemical_synapse_rs.calculate(x_pre, x_pos));
-        hr_pre.update_i_syn(slow_chemical_synapse_rs.calculate(x_pre, x_pos));
+        hr_pre.update_i_syn(slow_chemical_synapse_rs.calculate(x_pos, x_pre));
 
         if downsample_counter == downsample_rate {
             downsample_counter = 0;

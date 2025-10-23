@@ -1,8 +1,47 @@
 # Hindmarsh Rust
+
 A workspace that contains the create programs and libraries to execute some operations over the Hindmarsh Rose Model.
 
 ## Dependencies
 For building and running this project, you will need to download [Rust](https://rust-lang.org/tools/install/).
+
+## Observations and analysis
+
+### Hindmarsh-Rose model, the `e` parameter
+
+This set of differential equations is a neural model with different parameters that allow to change its behaviour. In this scope, it is important to mention the `e` parameter, which is used to change the regime of the model from regular ([Figure 1.A](#figure-1-a)) to chaotic ([Figure 1.B](#figure-1-b)). The value selected for the regular simulation is $e = 3.0$ and for the chaotic one is $e = 3.281$. 
+
+<table>
+  <tr>
+    <td id="figure-1-a" align="center">
+      <img src="images/regular-hr.png" alt="Hindmarsh-Rose model in regular regime" width="500"/>
+      <br>
+      <em>Figure 1.A: Hindmarsh-Rose model in regular regime, with `e` being 3.0</em>
+    </td>
+    <td id="figure-1-b" align="center">
+      <img src="images/regular-hr.png" alt="Hindmarsh-Rose model in chaotic regime" width="500"/>
+      <br>
+      <em>Figure 1.B: Hindmarsh-Rose model in chaotic regime, with `e` being 3.281</em>
+    </td>
+  </tr>
+</table>
+
+### Analyzing the chaotic regime
+
+<!-- TODO:  change reference of section-->
+Because of the nature of `e` parameter, one question rises, What is the maximum value for `e` that we can assign preserving the regular regime. In other words, what is the asymptotic value that separates the chaotic regime to the regular one for `e`? (For executing this part, please refer to the [usage](#usage) section) The value calculated is $e = 3.221$ and for achieving this, two methods can be used. The first one, is giving values to `e` from $3.0$ to the limit value, observing if the uniform pattern is present. The other one is using the standard deviation of the ISIs (Inter Spikes Intervals) duration, assigning a tolerance that when reached, will stop the script (this one is preferred) ([Figure 2](#figure-2)). 
+
+<table>
+  <tr>
+    <td id="figure-2" align="center">
+      <img src="images/e-converged.png" alt="Hindmarsh-Rose model from chaotic to regular" width="500"/>
+      <br>
+      <em>Figure 2: Hindmarsh-Rose model from chaotic to regular</em>
+    </td>
+  </tr>
+</table>
+
+
 
 ## Usage
 
@@ -25,7 +64,7 @@ cargo run --release -p hindmarsh-rose-analyzer-rs -- -h
 ```
 
 >[!WARNING]
->If you send SIGINT to one of the programs, the fifo won't be deleted, delete it yourself (default names have path like: `/tmp/hindmarsh-rust-*`) or execute one time the other end that didn't received the signal (reader fifos are cleaned on exit too).
+>If you end with a signal (sending SIGINT, SIGKILL ...) to one of the programs, the fifo won't be deleted, delete it yourself (default names have path like: `/tmp/hindmarsh-rust-*`) or execute one time the other end that didn't received the signal (reader fifos are cleaned on exit too).
 
 ### Execute Hidmarsh Rose Analysis on `e` parameter 
 
