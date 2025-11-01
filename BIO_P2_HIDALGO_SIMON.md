@@ -34,7 +34,7 @@ Both executions will be stored under `data/` directory inside the specified dire
 
 ## Analyzing the chaotic regime
 
-Because of the nature of `e` parameter, one question rises, What is the maximum value for `e` that we can assign preserving the regular regime. In other words, what is the asymptotic value that separates the chaotic regime to the regular one for `e`? The value calculated is $e = 3.221$ and for achieving this, two methods can be used. The first one, is giving values to `e` from $3.0$ to the limit value, observing if the uniform pattern is present. The other one is using the standard deviation of the ISIs (Inter Spikes Intervals) duration, assigning a tolerance that when reached, will stop the script (this one is preferred) ([Figure 2](#figure-2)). 
+Because of the nature of `e` parameter, one question rises, What is the maximum value for `e` that we can assign preserving the regular regime. In other words, what is the asymptotic value that separates the chaotic regime to the regular one for `e`? The value calculated is $e = 3.221$ and for achieving this, two methods can be used. The first one, is giving values to `e` from $3.281$ (or the specified one in the model) to the limit value, observing if the uniform pattern is present. The other one is using the standard deviation of the ISIs (Inter Spikes Intervals) duration, assigning a tolerance that when reached, will stop the script (this one is preferred) ([Figure 2](#figure-2)). 
 
 <table>
   <tr>
@@ -65,7 +65,7 @@ The execution will be stored in `data/hindmarsh-rose-analysis.csv`, there is als
 
 ## Closed loop of a neural circuit
 
-This bidirectional synapse connection synchronizes two Hindmarsh-Rose models with chaotic activity. The synaptic models used for this interaction are a both chemical and inhibitory, one fast and the other slow. The interaction shows that both synapses, despite being in a chaotic regime, regularize their activity to synchronize themselves in antiphase ([Figure 3](#figure-3)). Nevertheless, it shows overlap in some spikes due to some loss of synchronization that gets corrected with the evolution of the interaction (because of the synapses)-
+This bidirectional synapse connection synchronizes two Hindmarsh-Rose models with chaotic activity. The synaptic models used for this interaction are a both chemical and inhibitory, one fast and the other slow. The interaction shows that both synapses, despite being in a chaotic regime, regularize their activity to synchronize themselves in antiphase ([Figure 3](#figure-3)). Nevertheless, it shows overlap in some spikes due to some loss of synchronization that gets corrected with the evolution of the interaction (because of the synapses).
 
 <table>
   <tr>
