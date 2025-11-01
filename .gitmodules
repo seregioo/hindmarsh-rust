@@ -16,3 +16,6 @@
 [submodule "slow-chemical-synapse-rs"]
 	path = slow-chemical-synapse-rs
 	url = https://github.com/sergiohidalgo818/slow-chemical-synapse-rs
+[submodule "model_plotter_py"]
+	path = model_plotter_py
+	url = https://github.com/sergiohidalgo818/model_plotter_py

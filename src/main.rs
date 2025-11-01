@@ -1,4 +1,4 @@
-// TODO: Create here the pipes and pass an arument so they aren't created on the other programs
+// TODO: Create here the pipes/shared memory and pass an arument so they aren't created on the other programs when they are optimized
 
 use fast_chemical_synapse_rs::fast_chemical_synapse::FastChemicalSynapse;
 use hindmarsh_rose_rs::hindmarsh_rose::{self, HindmarshRoseModel, HindmarshRoseRungeKutta};
@@ -8,7 +8,7 @@ use model_data_io::{
 };
 use slow_chemical_synapse_rs::slow_chemical_synapse::SlowChemicalSynapse;
 fn main() {
-    let filename = "hindmarsh-rose-single-exec-syn.csv".to_string();
+    let filename = "hindmarsh-rose-bidirectional-in-chem-syn.csv".to_string();
     let goal = 20000.0;
     let time_increment = 0.0001;
     let downsample_rate = 100;
