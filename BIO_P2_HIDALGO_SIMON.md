@@ -13,12 +13,12 @@ This set of differential equations is a neural model with different parameters t
     <td id="figure-1-a" align="center">
       <img src="images/regular-hr.png" alt="Hindmarsh-Rose model in regular regime" width="600"/>
       <br>
-      <em>Figure 1.A: Hindmarsh-Rose model in regular regime, with `e` being 3.0</em>
+      <em>Figure 1.A: Hindmarsh-Rose model in regular regime, with e being 3.0</em>
     </td>
     <td id="figure-1-b" align="center">
       <img src="images/chaotic-hr.png" alt="Hindmarsh-Rose model in chaotic regime" width="600"/>
       <br>
-      <em>Figure 1.B: Hindmarsh-Rose model in chaotic regime, with `e` being 3.281</em>
+      <em>Figure 1.B: Hindmarsh-Rose model in chaotic regime, with e being 3.281</em>
     </td>
   </tr>
 </table>
