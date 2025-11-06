@@ -56,9 +56,9 @@ cargo run --release -p hindmarsh-rose-rs -- --e 3.281 --downsample-rate 50 --ete
 In other one the analyzer, as stated previously, you can execute by setting a maximum value for `e` or using the standard deviation tolerance as stopping parameter:
 ```bash
 # With max e
-cargo run --release -p hindmarsh-rose-analyzer-rs  -- --max-e 3.26
+cargo run --release -p hindmarsh-rose-analyzer-rs -- --max-e 3.26
 # With std tolerance
-cargo run --release -p hindmarsh-rose-analyzer-rs  -- --stop-with-standard-deviation -sdt 10
+cargo run --release -p hindmarsh-rose-analyzer-rs -- --stop-with-standard-deviation -sdt 10
 ```
 
 The execution will be stored in `data/hindmarsh-rose-analysis.csv`, there is also a file that stores the standard deviations (`data/hindmarsh-rose-analysis-stds.csv`) and another that keeps the times of the spike of the first depolarization and the last repolarization (`data/hindmarsh-rose-analysis-intrabursts.csv`).
