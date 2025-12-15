@@ -2,9 +2,6 @@
 
 A workspace that contains the create programs and libraries to execute some operations over the Hindmarsh Rose Model.
 
-> [!WARNING]
-> If you are looking for a document regarding the analysis of the executions, please refer to [BIO_P2_HIDALGO_SIMON.md](BIO_P2_HIDALGO_SIMON.md) or [BIO_P2_HIDALGO_SIMON.pdf](BIO_P2_HIDALGO_SIMON.pdf)
-
 ## Dependencies
 
 For building and running this project, you will need to download [Rust](https://rust-lang.org/tools/install/).
