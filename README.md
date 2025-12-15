@@ -146,7 +146,3 @@ cargo run --release
 ```
 
 This will store the data of the execution in `data/hindmarsh-rose-single-exec-syn.csv`.
-
-## TODO:
-
-Improve temporal scale (ensure same points for each model, maybe with a channel to send the data to thread). They have a temporal "lag" because the time for reading, writing and calculating,
