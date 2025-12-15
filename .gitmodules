@@ -1,21 +1,28 @@
 [submodule "hindmarsh-rose-analyzer-rs"]
 	path = hindmarsh-rose-analyzer-rs
 	url = https://github.com/sergiohidalgo818/hindmarsh-rose-analyzer-rs
+    branch = main
 [submodule "hindmarsh-rose-rs"]
 	path = hindmarsh-rose-rs
 	url = https://github.com/sergiohidalgo818/hindmarsh-rose-rs
+    branch = main
 [submodule "model-data-io"]
 	path = model-data-io
 	url = https://github.com/sergiohidalgo818/model-data-io
+    branch = main
 [submodule "electrical-synapse-rs"]
 	path = electrical-synapse-rs
 	url = https://github.com/sergiohidalgo818/electrical-synapse-rs
+    branch = main
 [submodule "fast-chemical-synapse-rs"]
 	path = fast-chemical-synapse-rs
 	url = https://github.com/sergiohidalgo818/fast-chemical-synapse-rs
+    branch = main
 [submodule "slow-chemical-synapse-rs"]
 	path = slow-chemical-synapse-rs
 	url = https://github.com/sergiohidalgo818/slow-chemical-synapse-rs
+    branch = main
 [submodule "model_plotter_py"]
 	path = model_plotter_py
 	url = https://github.com/sergiohidalgo818/model_plotter_py
+    branch = main
